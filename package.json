@@ -4,6 +4,8 @@
   "main": "index.js",
   "scripts": {
     "format": "prettier . --write",
+    "docker:build": "docker build -t cicd .",
+    "docker:run": "docker run -p 3000:3000 --init --rm cicd",
     "format:check": "prettier . --check",
     "start": "node server.js",
     "lint": "npx eslint .",
