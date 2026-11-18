@@ -54,7 +54,7 @@ jobs:
             ${{ vars.DOCKERHUB_USERNAME }}/cicd:latest
             ${{ vars.DOCKERHUB_USERNAME }}/cicd:${{ github.sha }}
       
-      -name: Trigger render depoy
+      - name: Trigger render depoy
         env:
             RENDER_DEPLOY_HOOK_URL: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
             IMAGE_URL: docker.io/${{ vars.DOCKERHUB_USERNAME }}/cicd:${{ github.sha }}
