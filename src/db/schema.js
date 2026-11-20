@@ -6,4 +6,4 @@ const subscribers = pgTable('subscribers', {
   emailAddress: varchar('email_address', { length: 254 }).notNull().unique(),
 });
 
-module.exports = { subscribers }; 
+module.exports = { subscribers };
