@@ -1,6 +1,6 @@
 const express = require('express');
 const { join } = require('node:path');
-// const validator = require('validator');
+const validator = require('validator');
 const { getDb } = require('./db/index.js');
 const { subscribers } = require('./db/schema.js');
 const { sql } = require('drizzle-orm');
@@ -38,11 +38,11 @@ app.post('/api/subscribers', async (req, res) => {
     const email =
       typeof req.body?.email === 'string' ? req.body.email.trim() : '';
 
-    // if (!validator.isEmail(email)) {
-    //   return res.status(400).json({ error: 'Invalid email' });
-    // }
+    if (!validator.isEmail(email)) {
+      return res.status(400).json({ error: 'Invalid email' });
+    }
 
-    if (!email.includes('@')) {
+      if (!email.includes('@')) {
       return res.status(400).json({ error: 'Invalid email' });
     }
     const db = getDb();
