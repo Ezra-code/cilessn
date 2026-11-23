@@ -42,7 +42,7 @@ app.post('/api/subscribers', async (req, res) => {
       return res.status(400).json({ error: 'Invalid email' });
     }
 
-      if (!email.includes('@')) {
+    if (!email.includes('@')) {
       return res.status(400).json({ error: 'Invalid email' });
     }
     const db = getDb();
